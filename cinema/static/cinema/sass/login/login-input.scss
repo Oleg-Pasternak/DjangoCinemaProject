@@ -1,0 +1,32 @@
+$font: 'Staatliches', cursive;
+$minor-font: 'Lato', sans-serif;
+$third-font: 'Khand', sans-serif;
+$past: 'Lobster', cursive;
+$background: #444343;
+$background-input: rgba(33, 33, 33, 0.70);
+$user-icon: #CACACA;
+$white: #ffffff;
+$red: #A6252C;
+$info: #BDE5F8;
+$font-info: #00529B;
+$background-error: rgba(33, 33, 33, 0.30);
+$black: #000000;
+$su-fp: #939393;
+$font-color: #828282;
+$font-wrapper: rgba(15, 15, 15, 0.7);
+$color1: #000205;
+$color2: #124F64;
+$color3: #256124;
+$color4: #267491;
+$color5: #0C0C0C;
+
+
+/* Dekstop */
+@media screen and (min-width: 960.5px) {
+  @import "login-desktop.scss"
+}
+
+/* Mobile */
+@media screen and (max-width: 960.5px) {
+  @import "login-mobile.scss"
+}

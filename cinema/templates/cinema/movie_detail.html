@@ -1,0 +1,23 @@
+{% extends 'cinema/base.html' %}
+
+{% block main %}
+<div class="media-background" style="background-image: url('{{ object.background.url }}')"></div>
+    <div class="main-content center-pos-horizontal">
+      <div class="main-info">
+        <div class="media-img">
+          <img src=" {{ object.image.url }}" class="main-img">
+        </div>
+        <div class="media-info">
+          <h1 class="main-text">{{ object.title }} ({{ object.year }})</h1>
+          <h2 class="main-plot" style='margin:0px;'>IMDb (<span style='color: #CFBB52;'>{{ object.rating }}</span>)</h2>
+          <h2 class="main-plot">{{ object.plot }}</h2>
+        </div>
+      </div>
+      <div class="video center-pos-horizontal center-pos-vertical">
+        <iframe width="860" height="550" src="{{ object.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <footer>
+      <h5>© 2019 Pasternak</h5>
+    </footer>
+{% endblock %}

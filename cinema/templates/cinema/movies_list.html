@@ -1,0 +1,25 @@
+{% extends 'cinema/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  Best Choice
+{% endblock %}
+
+{% block main %}
+  {% for object in object_list %}
+    <div class="main-content hvr-grow">
+      <div class="main-imgs">
+        <span class="rating">
+          <h4>IMDB:</h4> {{ object.rating }} / {{ object.year }}
+        </span>
+        <a href="{{ object.get_absolute_url }}"><img src=" {{ object.image.url }}" class="main-imgs"></a>
+        <a class="movie-text" href="{{ object.get_absolute_url }}">{{ object.title }}</a>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
+
+{% block sidebar%}
+  {% for object in object_list %}
+  {% endfor %}
+{% endblock %}

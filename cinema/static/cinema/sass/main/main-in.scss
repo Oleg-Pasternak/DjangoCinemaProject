@@ -1,0 +1,30 @@
+/* Colors and Fonts */
+$brand-font: 'Lobster', cursive;
+$main-font: 'Oxygen', sans-serif;
+$minor-font: 'Staatliches', cursive;
+$fontcolor: #969696;
+$background-rating: rgba(33, 33, 33, 0.90);
+$bodyback: #0A0A0A;
+$videoback: #1E1E1E;
+$imgback: #0E0E0E;
+$headback: #161616;
+$headhoverback: #212121;
+$search-back: #E2E2E2;
+$footerback: #141414;
+$filmback: #242424;
+$white: #ffffff;
+$black: #000000;
+$color1: #000205;
+$color2: #124F64;
+$color4: #267491;
+$color5: #0C0C0C;
+
+/* Dekstop */
+@media screen and (min-width: 960.5px) {
+  @import "main-desktop.scss"
+}
+
+/* Mobile */
+@media screen and (max-width: 960.5px) {
+  @import "main-mobile.scss"
+}

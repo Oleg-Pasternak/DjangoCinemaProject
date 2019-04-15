@@ -1,0 +1,149 @@
+ #desktop {
+    display: none;
+}
+
+body{
+  background: #0E0E0E url('../img/wallpaper.jpg') no-repeat center center fixed;
+  background-size: auto auto;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+.center-position{
+  width: 100%;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  .header-line{
+    height: 60px;
+    width: 100%;
+    background-color: $color5;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    .main-text{
+      font-family: $past;
+      font-size: 25px;
+      color: $white;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+}
+
+.login-form{
+  width: 100%;
+  .cnt-pos{
+    display: flex;
+    justify-content: center; /* align horizontal */
+    @media screen and (min-height: 560px) {
+      .user-icon{
+        margin-left: 14px;
+        margin-top: 5vh;
+        position: fixed;
+        width: 30vh;
+        height: 30vh;
+        background: $user-icon;
+        -webkit-border-radius: 100px;
+        border-radius: 150px;
+        border-style: solid;
+        border-color: $white;
+        display: flex;
+        justify-content: center; /* align horizontal */
+        align-items: center; /* align vertical */
+        img{
+          width: 15vh;
+          height: 15vh;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+        }
+      }
+    }
+  }
+  .center-pos{
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    .login-input{
+      bottom: 150px;
+      position: fixed;
+      @media screen and (min-height: 560px) {
+        input{
+          display: none;
+        h1{
+          display: none;
+        }
+        }
+      }
+      input{
+        display: flex;
+        margin-left: 14px;
+        margin-bottom: 5px;
+        background-color: $background-input;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+        color: $font-color;
+        width: 320px;
+        padding-bottom: 12px;
+        padding-top: 12px;
+        border: 1px;
+        border-color: $white;
+        border-style: solid;
+        &:focus{
+          background-color: $white;
+          color: $background-input;
+        }
+      }
+      h1{
+        margin-left: 14px;
+        margin-bottom: 25px;
+        text-align: center;
+        color: $white;
+        font-size:22px;
+        font-family: $minor-font;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+    }
+  }
+  button{
+    background-color: $color2;
+    color: $white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    &:active {
+      background-color: $color3;
+    }
+    &:hover {
+      background-color: $color4;
+    }
+  }
+  .su-fp{
+    width: 100%;
+    position: fixed;
+    bottom: 100px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    a{
+      padding-left: 20px;
+      padding-right: 20px;
+      text-decoration: none;
+      color: $white;
+      font-size: 13px;
+      &:hover{
+        color: $white;
+      }
+    }
+  }
+}
