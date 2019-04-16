@@ -13,7 +13,7 @@ SECRET_KEY = '8^x^847vi3p!*$q9px5j@h2*f(n^v4(1^__746sb_!-8_j)$&)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '4bc81b28.ngrok.io']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

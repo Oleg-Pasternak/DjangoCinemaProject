@@ -47,24 +47,30 @@
   <script src="{% static 'cinema/js/main.js' %}" type="text/javascript"></script>
   <!-- Search script -->
   <script type="text/javascript">
-  $(function() {
-      $('#search').keyup(function() {
-          $.ajax({
-              type: "POST",
-              url: '{% url "cinema:search" %}',
-              data: {
-                  'search_text' : $('#search').val(),
-                  'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
-              },
-              success: searchSuccess,
-          });
-      });
-  });
+    function searchSuccess(data, textStatus, jqXHR) {
+      if (data['result']) {
+        $('#search-results').html( "<ul>" + "<a href=\"" + data["result"][0]["url"] + "\">" + data["result"][0]["title"] +  "</a>" + "</ul>");
+      }
+    }
 
-  function searchSuccess(data, textStatus, jqXHR)
-  {
-      $('#search-results').html( "<ul>" + "<a href=\"" + data["result"][0]["url"] + "\">" + data["result"][0]["title"] +  "</a>" + "</ul>");
-  }
+    $(function() {
+      var search_form = $('#search');
+      search_form.change(function() {
+        if (search_form.val()) {
+          $.ajax({
+            type: "POST",
+            url: '{% url "cinema:search" %}',
+            data: {
+                'search_text' : search_form.val(),
+                'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: searchSuccess,
+          });
+        } else {
+          $( '#search-results' ).html('');
+        }
+      });
+    });
   </script>
 </body>
 </html>
