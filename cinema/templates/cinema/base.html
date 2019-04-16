@@ -48,20 +48,20 @@
   <!-- Search script -->
   <script type="text/javascript">
     function searchSuccess(data, textStatus, jqXHR) {
+      console.log(data['result'].length)
       if (data['result'].length > 0) {
         $('#search-results').html( "<ul>" + "<a href=\"" + data["result"][0]["url"] + "\">" + data["result"][0]["title"] +  "</a>" + "</ul>");
       }
     }
 
     $(function() {
-      var search_form = $('#search');
-      search_form.change(function() {
-        if (search_form.val()) {
+      $('#search').keyup(function() {
+        if ($(this).val().length > 0) {
           $.ajax({
             type: "POST",
             url: '{% url "cinema:search" %}',
             data: {
-                'search_text' : search_form.val(),
+                'search_text' : $(this).val(),
                 'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
             },
             success: searchSuccess,
