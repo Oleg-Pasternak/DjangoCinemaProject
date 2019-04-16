@@ -11,6 +11,3 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('search/', views.MovieSearch.as_view(), name='search'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
