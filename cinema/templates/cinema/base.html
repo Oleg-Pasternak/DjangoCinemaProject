@@ -48,7 +48,7 @@
   <!-- Search script -->
   <script type="text/javascript">
     function searchSuccess(data, textStatus, jqXHR) {
-      if (data['result']) {
+      if (data['result'].length > 0) {
         $('#search-results').html( "<ul>" + "<a href=\"" + data["result"][0]["url"] + "\">" + data["result"][0]["title"] +  "</a>" + "</ul>");
       }
     }
