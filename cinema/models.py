@@ -21,7 +21,7 @@ class Movie(models.Model):
 
     # How object will be displayed in admin page
     def __str__(self):
-        return f"{self.title} ({self.year})"
+        return "{} {}".format(self.title, self.year)
 
     def get_absolute_url(self):
         return reverse('cinema:movie_detail', args=[self.pk, ])
