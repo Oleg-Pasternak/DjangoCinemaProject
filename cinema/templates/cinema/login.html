@@ -36,8 +36,8 @@
                 </div>
               </div>
               <div class="su-fp">
-                <a href="#">Forgot password?</a>
-                <a href="#">Sing Up</a>
+                <a href="#" id="fp">Forgot password?</a>
+                <a href="#" id="su">Sing Up</a>
               </div>
               <button type="submit">Log in</button>
             </form>
@@ -79,11 +79,20 @@
     </div>
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>jQuery.noConflict();</script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="{% static 'cinema/js/main.js' %}"></script>
+    <!-- Swal aler -->
     <script type="text/javascript">
     swal ( "Demo version" ,  "Login: demo \n Password: demodemo","info" )
+    $(function(){
+      $('#su').click(function(){
+        swal ( "Oops" ,  "This feature does not work." ,  "error" );
+        console.log('...');
+      })
+      $('#fp').click(function(){
+        swal ( "Oops" ,  "This feature does not work." ,  "error" );
+      })
+    });
   </script>
   </body>
 </html>
