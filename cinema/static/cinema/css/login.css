@@ -4,7 +4,7 @@
     display: none; }
 
   body {
-    background: #171717 url("../img/wallpaper.jpg") no-repeat center center fixed;
+    background: #171717 url("../img/wallpaper2.jpg") no-repeat center center fixed;
     background-size: auto auto;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -109,6 +109,9 @@
           background-color: #256124; }
         .center-position .login-form button:hover {
           background-color: #124F64; }
+        .center-position .login-form button img {
+          width: 4.5vh;
+          height: 3vh; }
 
   .text-wrapper {
     -moz-user-select: none;
@@ -116,6 +119,9 @@
     text-align: center;
     margin-top: auto;
     margin-bottom: auto; }
+    .text-wrapper img {
+      width: 17.5vh;
+      height: 9.5vh; }
     .text-wrapper .main-text {
       margin-top: 0px;
       margin-bottom: 0px;

@@ -41,10 +41,12 @@
       <span id="search-results"></span>
     </div>
   </div>
+
   <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="{% static 'cinema/js/main.js' %}" type="text/javascript"></script>
+  {% block domready %}{% endblock domready %}
   <!-- Search script -->
   <script type="text/javascript">
     function searchSuccess(data, textStatus, jqXHR) {
@@ -72,5 +74,6 @@
       });
     });
   </script>
+
 </body>
 </html>

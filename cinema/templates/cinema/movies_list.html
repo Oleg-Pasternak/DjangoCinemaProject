@@ -12,8 +12,8 @@
         <span class="rating">
           <h4>IMDB:</h4> {{ object.rating }} / {{ object.year }}
         </span>
-        <a href="{{ object.get_absolute_url }}"><img src=" {{ object.image.url }}" class="main-imgs"></a>
-        <a class="movie-text" href="{{ object.get_absolute_url }}">{{ object.title }}</a>
+        <a href='{{ object.get_absolute_url }}'><img src=" {{ object.image.url }}" class="main-imgs"></a>
+        <a class="movie-text" href="">{{ object.title }}</a>
       </div>
     </div>
   {% endfor %}
@@ -23,3 +23,17 @@
   {% for object in object_list %}
   {% endfor %}
 {% endblock %}
+
+{% block domready %}
+  <script type="text/javascript">
+    $.ajax({
+      type: "GET",
+      url: '{% url "cinema_api:test_view" %}',
+      data: {
+          'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
+      },
+      success: function(data) {
+      },
+    });
+  </script>
+{% endblock domready %}

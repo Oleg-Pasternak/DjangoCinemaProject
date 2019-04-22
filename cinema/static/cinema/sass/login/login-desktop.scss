@@ -4,7 +4,7 @@
 
 
 body{
-  background: #171717 url('../img/wallpaper.jpg') no-repeat center center fixed;
+  background: #171717 url('../img/wallpaper2.jpg') no-repeat center center fixed;
   background-size: auto auto;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -120,6 +120,10 @@ body{
       &:hover {
         background-color: $color2;
       }
+      img{
+        width: 4.5vh;
+        height: 3vh;
+      }
     }
   }
 }
@@ -130,6 +134,10 @@ body{
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
+  img{
+    width: 17.5vh;
+    height: 9.5vh;
+  }
   .main-text{
     margin-top: 0px;
     margin-bottom: 0px;
