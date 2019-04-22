@@ -164,13 +164,12 @@
     display: none; }
 
   body {
-    background: #0E0E0E url("../img/wallpaper.jpg") no-repeat center center fixed;
+    background: #1c8aa0 url("../img/wallpaper2.jpg") no-repeat center center fixed;
     background-size: auto auto;
     -webkit-background-size: cover;
     -o-background-size: cover;
+    -moz-background-size: cover;
     background-size: cover;
-    width: 100%;
-    height: 100%;
     margin: 0px; }
 
   .center-position {
@@ -181,7 +180,7 @@
     .center-position .header-line {
       height: 60px;
       width: 100%;
-      background-color: #0C0C0C;
+      background-color: #124f64;
       display: flex;
       justify-content: center;
       /* align horizontal */
@@ -246,7 +245,7 @@
           border-radius: 5px;
           text-align: center;
           font-size: 14px;
-          color: #828282;
+          color: #ffffff;
           width: 320px;
           padding-bottom: 12px;
           padding-top: 12px;
@@ -279,6 +278,9 @@
         background-color: #256124; }
       .login-form button:hover {
         background-color: #267491; }
+      .login-form button img {
+        width: 4.5vh;
+        height: 3vh; }
     .login-form .su-fp {
       width: 100%;
       position: fixed;
