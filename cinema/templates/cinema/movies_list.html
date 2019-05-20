@@ -5,7 +5,7 @@
   {% for object in object_list %}
     <div class="main-content hvr-grow">
       <div class="main-imgs">
-        <a href="{{ object.get_absolute_url }}" class="main-img"><img src="{{ object.image.url }}" alt="img"></a>
+        <a href="{{ object.get_absolute_url }}" class="main-list-img"><img src="{{ object.image.url }}" alt="img"></a>
         <span class="rating">
           <h4>IMDB:</h4> {{ object.rating }} / {{ object.year }}
         </span>
