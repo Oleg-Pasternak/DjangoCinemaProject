@@ -24,27 +24,7 @@
           </div>
         </div>
         <div class="col center-position">
-          <div class="login-form">
-            <div class="user-icon">
-              <img src="{% static 'cinema/img/user-icon.svg' %}" alt="">
-            </div>
-            <div class="past center-position">
-              <h1>Sing in</h1>
-            </div>
-            <form action="." method="post">
-              <div class="center-pos">
-                <div class="login-input">
-                  {% csrf_token %}
-                  {{ form.as_p }}
-                </div>
-              </div>
-              <div class="su-fp">
-                <a href="#" id="fp">Forgot password?</a>
-                <a href="#" id="su">Sing Up</a>
-              </div>
-              <button type="submit"><img src="{% static 'cinema/img/3d.png' %}" alt="3d"></button>
-            </form>
-          </div>
+          {% block login %}{% endblock %}
         </div>
       </div>
     </div>
@@ -83,19 +63,14 @@
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="{% static 'cinema/js/main.js' %}"></script>
     <!-- Swal aler -->
     <script type="text/javascript">
-    swal ( "Demo version" ,  "Login: demo \n Password: demodemo","info" )
-    $(function(){
-      $('#su').click(function(){
-        swal ( "Oops" ,  "This feature does not work." ,  "error" );
-        console.log('...');
-      })
-      $('#fp').click(function(){
-        swal ( "Oops" ,  "This feature does not work." ,  "error" );
-      })
-    });
-  </script>
+      $(function(){
+        $('#fp').click(function(){
+          swal ( "Oops" ,  "This feature does not work." ,  "error" );
+        });
+      });
+   </script>
+   {% block swal %}{% endblock swal %}
   </body>
 </html>

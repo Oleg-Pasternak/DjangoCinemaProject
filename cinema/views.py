@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
@@ -6,6 +6,7 @@ from django.views.generic.base import View
 from django.views.generic.edit import FormView
 from django.contrib.auth import login, logout
 from cinema.models import Movie
+from account.models import Profile
 from django.http import JsonResponse
 
 
@@ -13,6 +14,12 @@ class MovieDetail(DetailView):
     template_name = 'cinema/movie_detail.html'
     model = Movie
 
+    def get_context_data(self, *args, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(MovieDetail, self).get_context_data(**kwargs)
+        #get profile user data from account.models
+        context['profile'] = Profile.objects.get(user=self.request.user.pk)
+        return context
 
 class MovieSearch(View):
     def post(self, request, *args, **kwargs):
@@ -30,7 +37,6 @@ class MovieSearch(View):
             })
         return JsonResponse({"result": json_result})
 
-
 class LoginPage(FormView):
     form_class = AuthenticationForm
     # If successful, redirect to home.
@@ -42,20 +48,25 @@ class LoginPage(FormView):
             self.template_name = "cinema/movies_list.html"
         # if not, display login page instead
         else:
-            self.template_name = "cinema/login.html"
+            self.template_name = "cinema/login-form.html"
         return super(LoginPage, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super(LoginPage, self).get_context_data(**kwargs)
-        context['form'].fields['username'].label = ""
-        context['form'].fields['username'].widget.attrs["placeholder"] = "username"
+        if self.request.user.is_authenticated:
+            #get profile user data from account.models
+            context['profile'] = Profile.objects.get(user=self.request.user.pk)
+            # get all Movies from database without filtration
+            context['object_list'] = Movie.objects.all()
+        else:
+            # Call the base implementation first to get a context
+            context['form'].fields['username'].label = ""
+            context['form'].fields['username'].widget.attrs["placeholder"] = "username"
 
-        context['form'].fields['password'].label = ""
-        context['form'].fields['password'].widget.attrs["placeholder"] = "password"
-
-        # get all Movies from database without filtration
-        context['object_list'] = Movie.objects.all()
+            context['form'].fields['password'].label = ""
+            context['form'].fields['password'].widget.attrs["placeholder"] = "password"
+            # get all Movies from database without filtration
+            context['object_list'] = Movie.objects.all()
         return context
 
     def form_valid(self, form):
@@ -68,20 +79,6 @@ class LoginPage(FormView):
         else:
             raise Http404
         return super(LoginPage, self).form_valid(form)
-
-
-class RegisterFormView(FormView):
-    form_class = UserCreationForm
-    # If successful, redirect to home.
-    success_url = "/"
-    # Registration page
-    template_name = "/cinema/register.html"
-    def form_valid(self, form):
-        # Create user if the data in the form was entered correctly.
-        form.save()
-        # Call the base class method
-        return super(RegisterFormView, self).form_valid(form)
-
 
 class LogoutView(View):
     def get(self, request):

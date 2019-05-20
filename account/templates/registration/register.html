@@ -1,0 +1,29 @@
+{% extends 'cinema/login.html' %}
+{% load staticfiles %}
+
+{% block login %}
+  <div class="login-form" style='height: 53vh;'>
+    <div class="user-icon">
+      <img src="{% static 'cinema/img/user-icon.svg' %}" alt="">
+    </div>
+    <div class="past center-position">
+      <h1 style='padding-bottom: 10px;'>Register</h1>
+    </div>
+    <form action="." method="post" id="register-form">
+      <div class="center-pos">
+              {% csrf_token %}
+              {% for field in form.visible_fields %}
+                  <div class="login-input">
+                      {{ field.errors }}
+                      {{ field }}
+                  </div>
+              {% endfor %}
+      </div>
+      <div class="su-fp">
+        <a href="#" id="fp">Forgot password?</a>
+        <a href="/">Sign in</a>
+      </div>
+      <button type="submit">SIGN UP</button>
+    </form>
+  </div>
+{% endblock %}

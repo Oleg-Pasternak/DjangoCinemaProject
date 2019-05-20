@@ -9,6 +9,9 @@
     width: 100%;
     margin: 0px; }
 
+  a {
+    outline: none; }
+
   header {
     background-color: #161616;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
@@ -16,42 +19,46 @@
     text-align: center;
     background-position: center;
     background-size: cover; }
-    header .navbar-logout {
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      float: right; }
-      header .navbar-logout a {
+    header .width-navbar {
+      margin-left: 20%;
+      width: 60%; }
+      header .width-navbar .navbar-account {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        float: right;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 8px;
+        padding-bottom: 4px; }
+        header .width-navbar .navbar-account a {
+          outline: none; }
+          header .width-navbar .navbar-account a img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; }
+        header .width-navbar .navbar-account:hover {
+          background-color: #212121; }
+        header .width-navbar .navbar-account:active {
+          background-color: #ffffff; }
+      header .width-navbar .navbar-brand {
+        text-align: center;
         padding-left: 30px;
         padding-right: 30px;
-        padding-top: 30px;
-        padding-bottom: 18px;
-        font-family: "Staatliches", cursive;
-        font-size: 16px;
-        text-decoration: none;
-        text-align: center;
-        line-height: 4;
-        color: #ffffff; }
-        header .navbar-logout a img {
-          width: 21px;
-          height: 21px;
-          margin-top: 23px; }
-        header .navbar-logout a:hover {
+        float: left;
+        line-height: 2.5;
+        height: 66px; }
+        header .width-navbar .navbar-brand a {
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          color: #ffffff;
+          font-size: 24px;
+          font-family: "Lobster", cursive;
+          text-decoration: none; }
+        header .width-navbar .navbar-brand:hover {
           background-color: #212121; }
-    header .navbar-brand {
-      text-align: center;
-      padding-left: 30px;
-      padding-right: 30px;
-      float: left;
-      line-height: 2.5;
-      height: 66px; }
-      header .navbar-brand a {
-        color: #ffffff;
-        font-size: 24px;
-        font-family: "Lobster", cursive;
-        text-decoration: none; }
-      header .navbar-brand:hover {
-        background-color: #212121; }
 
   .main-content {
     font-family: "Oxygen", sans-serif;
@@ -63,7 +70,7 @@
     .main-content .movie-text {
       color: #969696;
       margin-top: 5px;
-      font-size: 1.4vh;
+      font-size: 12px;
       text-decoration: none;
       text-align: left;
       float: left; }
@@ -87,6 +94,9 @@
       margin-bottom: 5px; }
       .main-imgs .rating h4 {
         margin: 0px; }
+    .main-imgs a img {
+      width: 180px;
+      height: 250px; }
     .main-imgs:hover {
       box-shadow: 0 0 2px #23adff; }
 
@@ -184,26 +194,54 @@
   .search {
     position: absolute;
     right: 80px;
+    top: 0;
     float: right; }
-    .search input {
-      height: 66px;
-      padding-right: 10px;
-      padding-left: 30px;
-      background-color: #161616;
-      color: #ffffff;
-      font-family: "Staatliches", cursive;
-      font-size: 13px;
-      border: none; }
-      .search input:hover {
+    .search #search-button a {
+      padding-left: 25px;
+      padding-top: 33px;
+      padding-bottom: 15px; }
+      .search #search-button a img {
+        padding-right: 25px;
+        margin-top: 15px;
+        -moz-user-select: none;
+        -webkit-user-select: none; }
+      .search #search-button a:hover {
         background-color: #212121; }
-      .search input:focus {
-        background-color: #ffffff;
-        color: #000000; }
+      .search #search-button a:active {
+        background-color: #ffffff; }
+    .search #search-show {
+      display: inline-block;
+      position: relative; }
+      .search #search-show input {
+        position: relative;
+        height: 66px;
+        padding-right: 10px;
+        padding-left: 30px;
+        background-color: #161616;
+        color: #ffffff;
+        font-family: "Staatliches", cursive;
+        font-size: 13px;
+        border: none; }
+        .search #search-show input:hover {
+          background-color: #212121; }
+        .search #search-show input:focus {
+          background-color: #ffffff;
+          color: #000000; }
+      .search #search-show a img {
+        outline: none;
+        margin-right: 15px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        width: 20px;
+        height: 25px; }
+    .search #search-show:not(:hover) {
+      display: none; }
 
   #search_popup {
-    position: fixed;
-    right: 80px;
-    top: 6.1vh;
+    position: absolute;
+    right: 25%;
+    top: 55px;
     width: 220px; }
     #search_popup #search-results ul {
       border-radius: 0px 0px 7px 7px;
@@ -214,7 +252,136 @@
         color: #000000;
         font-family: "Staatliches", cursive;
         line-height: 4;
-        text-decoration: none; } }
+        text-decoration: none; }
+
+  #dropdown {
+    position: absolute;
+    right: 20%;
+    top: 0;
+    margin-top: 70px; }
+    #dropdown #dropdown-container {
+      width: 260px;
+      height: 250px;
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.5);
+      background-color: #ffffff;
+      border-radius: 0px 0px 7px 7px; }
+      #dropdown #dropdown-container .dropdown-profile {
+        height: 90px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        #dropdown #dropdown-container .dropdown-profile h4 {
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          position: absolute;
+          left: 85px;
+          font-size: 15px;
+          font-family: "Oxygen", sans-serif;
+          color: #000205; }
+        #dropdown #dropdown-container .dropdown-profile h5 {
+          position: absolute;
+          top: 23px;
+          left: 85px;
+          font-size: 12px;
+          font-family: "Oxygen", sans-serif;
+          color: #737373; }
+        #dropdown #dropdown-container .dropdown-profile img {
+          pointer-events: none;
+          position: absolute;
+          left: 0;
+          margin-left: 10px;
+          margin-top: 15px;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          -moz-user-select: none;
+          -webkit-user-select: none; }
+      #dropdown #dropdown-container .dropdown-settings a p {
+        font-size: 12px;
+        color: #124F64; }
+      #dropdown #dropdown-container .dropdown-logout {
+        position: absolute;
+        bottom: 0;
+        width: 100%; }
+        #dropdown #dropdown-container .dropdown-logout a button {
+          width: 100%;
+          height: 45px;
+          border: none;
+          background-color: #2386b0;
+          border-radius: 0px 0px 3px 3px;
+          color: #ffffff; }
+          #dropdown #dropdown-container .dropdown-logout a button:hover {
+            background-color: #227294; }
+    #dropdown #dropdown-container:not(:hover) {
+      display: none; }
+
+  .profile {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 100vh;
+    height: 80vh;
+    background-color: rgba(33, 33, 33, 0.8);
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.5); }
+    .profile .profile-data {
+      margin-left: 200px; }
+      .profile .profile-data img {
+        pointer-events: none;
+        margin-left: 10px;
+        margin-top: 15px;
+        width: 150px;
+        height: 150px;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        -moz-user-select: none;
+        -webkit-user-select: none; }
+      .profile .profile-data .profile-elements h3 {
+        font-size: 15px;
+        font-family: "Oxygen", sans-serif;
+        color: #ffffff; }
+      .profile .profile-data .profile-elements h1 {
+        font-size: 25px;
+        color: #ffffff; }
+    .profile .profile-container {
+      position: absolute;
+      bottom: 0;
+      width: 200px;
+      height: 80vh;
+      border-radius: 5px 0px 0px 0px;
+      background-color: rgba(28, 28, 28, 0.7); }
+      .profile .profile-container .passchange a {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-decoration: none;
+        background-color: #161616;
+        padding-left: 25%;
+        padding-right: 25%; }
+        .profile .profile-container .passchange a p {
+          font-size: 13px;
+          color: #ffffff; }
+
+  .background-profile {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 480px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-top: 66px; }
+    .background-profile:before {
+      position: fixed;
+      content: " ";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-repeat: repeat-x;
+      background-image: -webkit-linear-gradient(to bottom, rgba(21, 21, 21, 0.5) 0%, #171717 50%);
+      background-image: -o-linear-gradient(to bottom, rgba(21, 21, 21, 0.5) 0%, #171717 50%);
+      background-image: linear-gradient(to bottom, rgba(21, 21, 21, 0.5) 0%, #171717 50%); } }
 /* Mobile */
 @media screen and (max-width: 960.5px) {
   #desktop {
@@ -258,6 +425,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
+    background-color: #0E0E0E;
     float: left; }
     .main-imgs .rating {
       position: absolute;
@@ -286,28 +454,20 @@
     text-align: center;
     background-position: center;
     background-size: cover; }
-    header .navbar-logout {
+    header .navbar-account {
       position: absolute;
       right: 0px;
       top: 0px;
-      float: right; }
-      header .navbar-logout a {
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 30px;
-        padding-bottom: 18px;
-        font-family: "Staatliches", cursive;
-        font-size: 16px;
-        text-decoration: none;
-        text-align: center;
-        line-height: 4;
-        color: #ffffff; }
-        header .navbar-logout a img {
-          width: 20px;
-          height: 20px;
-          margin-top: 23px; }
-        header .navbar-logout a:hover {
-          background-color: #212121; }
+      float: right;
+      margin: 13px; }
+      header .navbar-account a {
+        outline: none; }
+        header .navbar-account a img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%; }
+        header .navbar-account a:active {
+          background-color: #ffffff; }
     header .navbar-brand {
       text-align: center;
       padding-left: 30px;
@@ -320,8 +480,6 @@
         font-size: 22px;
         font-family: "Lobster", cursive;
         text-decoration: none; }
-      header .navbar-brand:hover {
-        background-color: #212121; }
 
   .media-background {
     position: fixed;
@@ -344,6 +502,111 @@
       background-image: -webkit-linear-gradient(to bottom, rgba(21, 21, 21, 0.5) 0%, #171717 50%);
       background-image: -o-linear-gradient(to bottom, rgba(21, 21, 21, 0.5) 0%, #171717 50%);
       background-image: linear-gradient(to bottom, rgba(21, 21, 21, 0.5) 0%, #171717 50%); }
+
+  #dropdown {
+    position: absolute;
+    right: 0%;
+    top: 66px; }
+    #dropdown #dropdown-container {
+      width: 260px;
+      height: 250px;
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.5);
+      background-color: #ffffff;
+      border-radius: 0px 0px 7px 7px; }
+      #dropdown #dropdown-container .dropdown-profile {
+        height: 90px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        #dropdown #dropdown-container .dropdown-profile h4 {
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          position: absolute;
+          left: 85px;
+          font-size: 15px;
+          font-family: "Oxygen", sans-serif;
+          color: #000205; }
+        #dropdown #dropdown-container .dropdown-profile h5 {
+          position: absolute;
+          top: 23px;
+          left: 85px;
+          font-size: 12px;
+          font-family: "Oxygen", sans-serif;
+          color: #737373; }
+        #dropdown #dropdown-container .dropdown-profile img {
+          pointer-events: none;
+          position: absolute;
+          left: 0;
+          margin-left: 10px;
+          margin-top: 15px;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          -moz-user-select: none;
+          -webkit-user-select: none; }
+      #dropdown #dropdown-container .dropdown-settings a p {
+        font-size: 12px;
+        color: #124F64; }
+      #dropdown #dropdown-container .dropdown-logout {
+        position: absolute;
+        bottom: 0;
+        width: 100%; }
+        #dropdown #dropdown-container .dropdown-logout a button {
+          width: 100%;
+          height: 45px;
+          border: none;
+          background-color: #2386b0;
+          border-radius: 0px 0px 3px 3px;
+          color: #ffffff; }
+          #dropdown #dropdown-container .dropdown-logout a button:hover {
+            background-color: #227294; }
+    #dropdown #dropdown-container:not(:hover) {
+      display: none; }
+
+  .profile {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%; }
+    .profile .profile-data {
+      margin-bottom: 75px; }
+      .profile .profile-data img {
+        pointer-events: none;
+        margin-left: 10px;
+        margin-top: 15px;
+        width: 80px;
+        height: 80px;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        -moz-user-select: none;
+        -webkit-user-select: none; }
+      .profile .profile-data .profile-elements h3 {
+        font-size: 15px;
+        font-family: "Oxygen", sans-serif;
+        color: #ffffff; }
+      .profile .profile-data .profile-elements h1 {
+        font-size: 20px;
+        color: #ffffff; }
+      .profile .profile-data p input {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        border: none;
+        background-color: #2386b0;
+        color: #ffffff; }
+      .profile .profile-data .passchange a {
+        text-decoration: none; }
+        .profile .profile-data .passchange a p {
+          font-size: 13px;
+          color: #ffffff; }
+      .profile .profile-data .profile-input p {
+        font-size: 14px;
+        font-family: "Oxygen", sans-serif;
+        color: #ffffff; }
+      .profile .profile-data .profile-input input {
+        padding: 5px;
+        border: none;
+        border-radius: 3px; }
 
   .media-info {
     text-align: left;

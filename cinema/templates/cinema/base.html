@@ -2,78 +2,93 @@
 {% load staticfiles %}
 <html lang='en'>
 <head>
-  <meta charset="utf-8" />
+  <meta http-equiv="content-type" content="text/html" charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="theme-color" content="#121212">
   <meta name="msapplication-navbutton-color" content="#121212">
   <meta name="apple-mobile-web-app-status-bar-style" content="#121212">
   <link href="{% static 'cinema/css/main.css' %}" rel="stylesheet" type="text/css" media="screen"/>
+  <link href="{% static 'cinema/img/favicon.svg' %}" rel="icon" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css?family=Lobster|Oxygen" rel="stylesheet" >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.min.css" integrity="sha256-vl+0p/Z28RcVvC+cofUiIeYusGdOc4CXk/taqgQ2/XU=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" integrity="sha256-c+C87jupO1otD1I5uyxV68WmSLCqtIoNlcHLXtzLCT0=" crossorigin="anonymous" />
-  <title>{{ object.title }}</title>
+  <title>{% block title %}Pasternak{% endblock %}</title>
 </head>
 <body>
   <div class="container-fluid" style="padding: 0px;">
     <header>
-      <div class="row full" style="margin: 0px;">
-        <div class="col centered" style="padding: 0px;">
-          <div class="navbar-brand"><a href="/">Pasternak</a></div>
-          <div class="search">
-            {% csrf_token %}
-            <input type="text" placeholder="Search" aria-lable="Search" id="search" name='cinema:search' value="">
-          </div>
-          <div class="navbar-logout">
-            <a href="/logout">
-              <img src="{% static 'cinema/img/exit.svg'%}" alt="">
-            </a>
+      <div class="width-navbar">
+        <div class="row full" style="margin: 0px;">
+          <div class="col centered" style="padding: 0px;">
+            <div class="navbar-brand"><a href="/">Pasternak</a></div>
+            <div class="search">
+              {% csrf_token %}
+              <div id="search-button">
+                <a href="#"><img src="{% static 'cinema/img/search.svg' %}" alt=""></a>
+              </div>
+              <div id="search-show">
+                <input type="text" placeholder="Search" aria-lable="Search" id="search" name='cinema:search' value="" style="background: #ffffff url({% static 'cinema/img/search.svg' %}) no-repeat scroll 16px 16px; padding-left:50px;">
+                <a href="#" id="search-hide"><img src="{% static 'cinema/img/close.svg' %}" alt=""></a>
+              </div>
+            </div>
+            <div class="navbar-account" id="account">
+              <a href="#"><img src="{{ profile.image.url }}" alt=""></a>
+            </div>
           </div>
         </div>
       </div>
     </header>
     <div class="row full" style="margin: 0px;">
-      <div class="col centered">
-          {% block main %}{% endblock main %}
-          {% block sidebar %}{% endblock sidebar %}
+      <div class="col centered" id="click-hide">
+        {% block main %}{% endblock main %}
+        {% block sidebar %}{% endblock sidebar %}
       </div>
     </div>
+    <!-- Search Result-->
     <div id="search_popup">
       <span id="search-results"></span>
+    </div>
+    <!-- Dropdown profile -->
+    <div id="dropdown" class="centered">
+      <div id="dropdown-container">
+        <div class="dropdown-profile">
+          <img src="{{ profile.image.url }}" alt="">
+          <h4>Welcome, {{ profile.first_name }}</h4>
+          <h5>{{ profile.user }}</h5>
+        </div>
+        <div class="dropdown-settings">
+          <a href="{% url 'account:profile' %}"><p>Settings</p></a>
+        </div>
+        <div class="dropdown-logout">
+          <a href="{% url 'cinema:logout' %}"><button type="button" name="button">Logout</button></a>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="{% static 'cinema/js/main.js' %}" type="text/javascript"></script>
-  {% block domready %}{% endblock domready %}
-  <!-- Search script -->
+  <script src="{% static '/cinema/js/main.js' %}"></script>
   <script type="text/javascript">
-    function searchSuccess(data, textStatus, jqXHR) {
-      console.log(data['result'].length)
-      if (data['result'].length > 0) {
-        $('#search-results').html( "<ul>" + "<a href=\"" + data["result"][0]["url"] + "\">" + data["result"][0]["title"] +  "</a>" + "</ul>");
+  // Search results
+  $(function() {
+      $('#search').keyup(function() {
+      if ($(this).val().length > 0) {
+        $.ajax({
+          type: "POST",
+          url: '{% url "cinema:search" %}',
+          data: {
+              'search_text' : $(this).val(),
+              'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
+          },
+          success: searchSuccess,
+        });
+      } else {
+        $( '#search-results' ).html('');
       }
-    }
-
-    $(function() {
-        $('#search').keyup(function() {
-        if ($(this).val().length > 0) {
-          $.ajax({
-            type: "POST",
-            url: '{% url "cinema:search" %}',
-            data: {
-                'search_text' : $(this).val(),
-                'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val(),
-            },
-            success: searchSuccess,
-          });
-        } else {
-          $( '#search-results' ).html('');
-        }
-      });
     });
+  });
   </script>
-
 </body>
 </html>

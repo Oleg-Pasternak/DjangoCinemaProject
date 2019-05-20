@@ -42,6 +42,7 @@ body{
   -moz-user-select: none;
   -webkit-user-select: none;
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
+  background-color: $imgback;
   float: left;
   .rating{
     position: absolute;
@@ -75,29 +76,21 @@ header{
   text-align: center;
   background-position: center;
   background-size: cover;
-  .navbar-logout{
+  .navbar-account{
     position: absolute;
     right: 0px;
     top: 0px;
     float: right;
+    margin: 13px;
     a{
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-top: 30px;
-      padding-bottom: 18px;
-      font-family: $minor-font;
-      font-size: 16px;
-      text-decoration: none;
-      text-align: center;
-      line-height: 4;
-      color: $white;
+      outline: none;
       img{
-        width: 20px;
-        height: 20px;
-        margin-top: 23px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
       }
-      &:hover{
-        background-color: $headhoverback;
+      &:active{
+        background-color: $white;
       }
     }
   }
@@ -113,9 +106,6 @@ header{
       font-size: 22px;
       font-family: $brand-font;
       text-decoration: none;
-    }
-    &:hover{
-      background-color: $headhoverback;
     }
   }
 }
@@ -142,6 +132,146 @@ header{
         background-image: -o-linear-gradient(to bottom,rgba(21,21,21,.5) 0%,#171717 50%);
         background-image: linear-gradient(to bottom,rgba(21,21,21,.5) 0%,#171717 50%);
    }
+}
+
+#dropdown{
+  position: absolute;
+  right: 0%;
+  top: 66px;
+  #dropdown-container{
+    width: 260px;
+    height: 250px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.5);
+    background-color: $white;
+    border-radius: 0px 0px 7px 7px;
+    .dropdown-profile{
+      height: 90px;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      h4{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        position: absolute;
+        left: 85px;
+        font-size: 15px;
+        font-family: $main-font;
+        color: $color1;
+      }
+      h5{
+        position: absolute;
+        top: 23px;
+        left: 85px;
+        font-size: 12px;
+        font-family: $main-font;
+        color: $username;
+      }
+      img{
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        margin-left: 10px;
+        margin-top: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+    }
+    .dropdown-settings{
+      a{
+        p{
+          font-size: 12px;
+          color: $color2;
+        }
+      }
+    }
+    .dropdown-logout{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      a{
+        button{
+          width: 100%;
+          height: 45px;
+          border: none;
+          background-color: $exit;
+          border-radius: 0px 0px 3px 3px;
+          color: $white;
+          &:hover{
+            background-color: $exithover;
+          }
+        }
+      }
+    }
+  }
+  #dropdown-container:not(:hover){
+    display: none;
+  }
+}
+
+.profile{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  .profile-data{
+    margin-bottom: 75px;
+    img{
+      pointer-events: none;
+      margin-left: 10px;
+      margin-top: 15px;
+      width: 80px;
+      height: 80px;
+      border: 3px solid $white;
+      border-radius: 50%;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+    }
+    .profile-elements{
+      h3{
+        font-size: 15px;
+        font-family: $main-font;
+        color: $white;
+      }
+      h1{
+        font-size: 20px;
+        color: $white;
+      }
+    }
+    p{
+      input{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        border: none;
+        background-color: $exit;
+        color: $white;
+      }
+    }
+    .passchange{
+      a{
+        text-decoration: none;
+        p{
+          font-size: 13px;
+          color: $white
+        }
+      }
+    }
+    .profile-input{
+      p{
+        font-size: 14px;
+        font-family: $main-font;
+        color: $white;
+      }
+      input{
+        padding: 5px;
+        border: none;
+        border-radius: 3px;
+      }
+    }
+  }
 }
 
 .media-info{

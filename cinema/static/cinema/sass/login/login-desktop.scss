@@ -53,31 +53,28 @@ body{
     }
     .center-pos{
       .login-input{
-        p {
-          margin-top: 2vh;
+        display: flex;
+        justify-content: center; /* align horizontal */
+        input{
           margin-bottom: 0.7vh;
-          display: flex;
-          justify-content: center; /* align horizontal */
-          input{
-            font-family: $minor-font;
-            font-size: 1.4vh;
-            background-color: $background-input;
-            color: $white;
-            text-align: center;
-            padding-left: 5vh;
-            padding-right: 5vh;
-            padding-bottom: 1vh;
-            padding-top: 1vh;
-            margin-left: auto;
-            margin-right: auto;
-            border: 0px;
+          font-family: $minor-font;
+          font-size: 1.4vh;
+          background-color: $background-input;
+          color: $white;
+          text-align: center;
+          padding-left: 5vh;
+          padding-right: 5vh;
+          padding-bottom: 1vh;
+          padding-top: 1vh;
+          margin-left: auto;
+          margin-right: auto;
+          border: 0px;
+          border-radius: 5px;
+          &:focus{
+            background-color: $white;
+            color: $background-input;
+            border: none;
             border-radius: 5px;
-            &:focus{
-              background-color: $white;
-              color: $background-input;
-              border: none;
-              border-radius: 5px;
-            }
           }
         }
       }

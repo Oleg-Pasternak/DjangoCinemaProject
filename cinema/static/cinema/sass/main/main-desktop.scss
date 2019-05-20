@@ -7,6 +7,10 @@ body{
   margin: 0px;
 }
 
+a{
+  outline: none;
+}
+
 header{
   background-color: $headback;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
@@ -14,48 +18,53 @@ header{
   text-align: center;
   background-position: center;
   background-size: cover;
-  .navbar-logout{
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    float: right;
-    a{
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-top: 30px;
-      padding-bottom: 18px;
-      font-family: $minor-font;
-      font-size: 16px;
-      text-decoration: none;
-      text-align: center;
-      line-height: 4;
-      color: $white;
-      img{
-        width: 21px;
-        height: 21px;
-        margin-top: 23px;
+  .width-navbar{
+    margin-left: 20%;
+    width: 60%;
+    .navbar-account{
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      float: right;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 8px;
+      padding-bottom: 4px;
+      a{
+        outline: none;
+        img{
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
       }
       &:hover{
         background-color: $headhoverback;
       }
+      &:active{
+        background-color: $white;
+      }
     }
-  }
-
-  .navbar-brand{
-    text-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    float: left;
-    line-height: 2.5;
-    height: 66px;
-    a{
-      color: $white;
-      font-size: 24px;
-      font-family: $brand-font;
-      text-decoration: none;
-    }
-    &:hover{
-      background-color: $headhoverback;
+    .navbar-brand{
+      text-align: center;
+      padding-left: 30px;
+      padding-right: 30px;
+      float: left;
+      line-height: 2.5;
+      height: 66px;
+      a{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        color: $white;
+        font-size: 24px;
+        font-family: $brand-font;
+        text-decoration: none;
+      }
+      &:hover{
+        background-color: $headhoverback;
+      }
     }
   }
 }
@@ -70,7 +79,7 @@ header{
   .movie-text{
     color: $fontcolor;
     margin-top: 5px;
-    font-size: 1.4vh;
+    font-size: 12px;
     text-decoration: none;
     text-align: left;
     float: left;
@@ -95,6 +104,12 @@ header{
     margin-bottom: 5px;
     h4{
       margin: 0px;
+    }
+  }
+  a{
+    img{
+      width: 180px;
+      height: 250px;
     }
   }
   &:hover{
@@ -209,30 +224,69 @@ footer{
 .search{
   position: absolute;
   right: 80px;
+  top: 0;
   float: right;
-  input{
-    height: 66px;
-    padding-right: 10px;
-    padding-left: 30px;
-    background-color: $headback;
-    color: $white;
-    font-family: $minor-font;
-    font-size: 13px;
-    border: none;
-    &:hover{
-      background-color: $headhoverback;
+  #search-button{
+    a{
+      padding-left: 25px;
+      padding-top: 33px;
+      padding-bottom: 15px;
+      img{
+        padding-right: 25px;
+        margin-top:  15px;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+      &:hover{
+        background-color: $headhoverback;
+      }
+      &:active{
+        background-color: $white;
+      }
     }
-    &:focus{
-      background-color: $white;
-      color: $black;
+  }
+  #search-show{
+    display:inline-block;
+    position: relative;
+    input{
+      position: relative;
+      height: 66px;
+      padding-right: 10px;
+      padding-left: 30px;
+      background-color: $headback;
+      color: $white;
+      font-family: $minor-font;
+      font-size: 13px;
+      border: none;
+      &:hover{
+        background-color: $headhoverback;
+      }
+      &:focus{
+        background-color: $white;
+        color: $black;
+      }
     }
+    a{
+      img{
+        outline: none;
+        margin-right: 15px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+        width: 20px;
+        height: 25px;
+      }
+    }
+  }
+  #search-show:not(:hover){
+    display: none;
   }
 }
 
 #search_popup {
-    position: fixed;
-    right: 80px;
-    top: 6.1vh;
+    position: absolute;
+    right: 25%;
+    top: 55px;
     width: 220px;
     #search-results{
       ul{
@@ -248,4 +302,167 @@ footer{
         background-color: $white;
       }
     }
+}
+
+#dropdown{
+  position: absolute;
+  right: 20%;
+  top: 0;
+  margin-top: 70px;
+  #dropdown-container{
+    width: 260px;
+    height: 250px;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.5);
+    background-color: $white;
+    border-radius: 0px 0px 7px 7px;
+    .dropdown-profile{
+      height: 90px;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      h4{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        position: absolute;
+        left: 85px;
+        font-size: 15px;
+        font-family: $main-font;
+        color: $color1;
+      }
+      h5{
+        position: absolute;
+        top: 23px;
+        left: 85px;
+        font-size: 12px;
+        font-family: $main-font;
+        color: $username;
+      }
+      img{
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        margin-left: 10px;
+        margin-top: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+    }
+    .dropdown-settings{
+      a{
+        p{
+          font-size: 12px;
+          color: $color2;
+        }
+      }
+    }
+    .dropdown-logout{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      a{
+        button{
+          width: 100%;
+          height: 45px;
+          border: none;
+          background-color: $exit;
+          border-radius: 0px 0px 3px 3px;
+          color: $white;
+          &:hover{
+            background-color: $exithover;
+          }
+        }
+      }
+    }
+  }
+  #dropdown-container:not(:hover){
+    display: none;
+  }
+}
+
+.profile{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 100vh;
+  height: 80vh;
+  background-color: rgba(33, 33, 33, 0.8);
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.5);
+  .profile-data{
+    margin-left: 200px;
+    img{
+      pointer-events: none;
+      margin-left: 10px;
+      margin-top: 15px;
+      width: 150px;
+      height: 150px;
+      border: 3px solid $white;
+      border-radius: 50%;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+    }
+    .profile-elements{
+      h3{
+        font-size: 15px;
+        font-family: $main-font;
+        color: $white;
+      }
+      h1{
+        font-size: 25px;
+        color: $white;
+      }
+    }
+  }
+  .profile-container{
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 80vh;
+    border-radius: 5px 0px 0px 0px;
+    background-color: rgba(28, 28, 28, 0.7);
+    .passchange{
+      a{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-decoration: none;
+        background-color: $bodychangepass;
+        padding-left: 25%;
+        padding-right: 25%;
+        p{
+          font-size: 13px;
+          color: $white
+        }
+      }
+    }
+    .profile-buttons{
+
+    }
+  }
+}
+
+.background-profile{
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 480px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: 66px;
+  &:before {
+        position: fixed;
+        content: " ";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-repeat: repeat-x;
+        background-image: -webkit-linear-gradient(to bottom,rgba(21,21,21,.5) 0%,#171717 50%);
+        background-image: -o-linear-gradient(to bottom,rgba(21,21,21,.5) 0%,#171717 50%);
+        background-image: linear-gradient(to bottom,rgba(21,21,21,.5) 0%,#171717 50%);
+   }
 }

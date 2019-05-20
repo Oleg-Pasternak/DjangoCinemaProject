@@ -1,0 +1,40 @@
+{% extends 'cinema/base.html' %}
+{% load staticfiles %}
+{% block title %}Edit {{ profile.user }} account{% endblock %}
+
+{% block main %}
+  <div class="background-profile" style="background-image: url({% static 'cinema/img/background-profile.jpg' %})"></div>
+  <form method="post">
+    <div class="profile">
+      <div class="profile-container"></div>
+      <div class="profile-data">
+        <img src="{{ profile.image.url }}" alt="">
+        <div class="profile-elements">
+          <h3>{{ profile.user }}</h3>
+          <h1>Edit profile</h1>
+        </div>
+        <form action="." method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="profile-input">
+            <p style='color: #ffffff'>First name:</p>
+            <input type="text" name="first_name" value="{{ profile.first_name}}">
+          </div>
+          <div class="profile-input">
+            <p style='color: #ffffff'>Last name:</p>
+            <input type="text" name="last_name" value="{{ profile.last_name}}">
+          </div>
+          <div class="profile-input">
+            <p style='color: #ffffff'>Your birthday:</p>
+            <input type="date" name="birthday" value="{{ profile.birthday}}">
+          </div>
+          <div class="profile-input">
+            <p style='color: #ffffff'>Upload User Image:</p>
+            <input type="file" name="image" value="" accept=".jpg, .jpeg, .png" style="color: #ffffff">
+          </div>
+          <div class="passchange"><a href="{% url 'account:password_change' %}"><p>Change Password</p></a></div>
+          <p><input type="submit" value="Save changes"></p>
+        </form>
+      </div>
+    </div>
+  </form>
+{% endblock %}

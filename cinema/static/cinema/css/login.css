@@ -51,13 +51,12 @@
           height: 8vh;
           -moz-user-select: none;
           -webkit-user-select: none; }
-      .center-position .login-form .center-pos .login-input p {
-        margin-top: 2vh;
-        margin-bottom: 0.7vh;
+      .center-position .login-form .center-pos .login-input {
         display: flex;
         justify-content: center;
         /* align horizontal */ }
-        .center-position .login-form .center-pos .login-input p input {
+        .center-position .login-form .center-pos .login-input input {
+          margin-bottom: 0.7vh;
           font-family: "Lato", sans-serif;
           font-size: 1.4vh;
           background-color: rgba(33, 33, 33, 0.7);
@@ -71,7 +70,7 @@
           margin-right: auto;
           border: 0px;
           border-radius: 5px; }
-          .center-position .login-form .center-pos .login-input p input:focus {
+          .center-position .login-form .center-pos .login-input input:focus {
             background-color: #ffffff;
             color: rgba(33, 33, 33, 0.7);
             border: none;

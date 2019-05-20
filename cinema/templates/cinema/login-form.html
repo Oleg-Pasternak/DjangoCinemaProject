@@ -1,0 +1,35 @@
+{% extends 'cinema/login.html' %}
+{% load staticfiles %}
+
+{% block login %}
+  <div class="login-form">
+    <div class="user-icon">
+      <img src="{% static 'cinema/img/user-icon.svg' %}" alt="">
+    </div>
+    <div class="past center-position">
+      <h1 style='padding-bottom: 20px;'>Sing in</h1>
+    </div>
+    <form action="." method="post">
+      <div class="center-pos">
+        {% for forms in form.visible_fields%}
+          <div class="login-input">
+            {% csrf_token %}
+            {{ forms }}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="su-fp">
+        <a href="#" id="fp">Forgot password?</a>
+        <a href="account/" id="su">Sign Up</a>
+      </div>
+      <button type="submit"><img src="{% static 'cinema/img/3d.png' %}" alt="3d"></button>
+    </form>
+  </div>
+{% endblock %}
+
+<!-- Login Page Demo messege -->
+{% block swal %}
+  <script type="text/javascript">
+    swal ( "Demo version" ,  "Login: demo \n Password: demodemo","info" )
+  </script>
+{% endblock %}
