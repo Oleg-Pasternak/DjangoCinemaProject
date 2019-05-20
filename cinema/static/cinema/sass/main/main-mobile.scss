@@ -288,6 +288,12 @@ header{
 .main-info{
   margin-top: 20px;
   position: absolute;
+  .media-img{
+    img{
+      width: 200px;
+      height: 280px;
+    }
+  }
 }
 
 .main-img{
@@ -313,7 +319,7 @@ header{
 }
 
 .video{
-  margin-top: 500px;
+  margin-top: 600px;
   margin-bottom: 70px;
   background-color: $videoback;
   iframe{

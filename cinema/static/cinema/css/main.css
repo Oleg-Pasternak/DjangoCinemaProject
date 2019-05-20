@@ -124,7 +124,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 480px;
+    height: 800px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center; }
@@ -618,6 +618,9 @@
   .main-info {
     margin-top: 20px;
     position: absolute; }
+    .main-info .media-img img {
+      width: 200px;
+      height: 280px; }
 
   .main-img {
     width: 140px;
@@ -639,7 +642,7 @@
     width: 300px; }
 
   .video {
-    margin-top: 500px;
+    margin-top: 600px;
     margin-bottom: 70px;
     background-color: #1E1E1E; }
     .video iframe {
