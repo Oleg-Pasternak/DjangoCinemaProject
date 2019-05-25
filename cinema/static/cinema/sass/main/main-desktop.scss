@@ -85,35 +85,38 @@ header{
     float: left;
   }
 }
-.main-imgs{
-  width: 20vh;
-  height: 29vh;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
-  background-color: $imgback;
-  float: left;
-  .rating{
-    position: absolute;
-    z-index: 1;
-    color: $white;
-    font-size: 1vh;
-    display: none;
-    bottom: 0px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    h4{
-      margin: 0px;
+#click-hide{
+  max-width: 90vh;
+  .main-imgs{
+    width: 20vh;
+    height: 29vh;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
+    background-color: $imgback;
+    float: left;
+    .rating{
+      position: absolute;
+      z-index: 1;
+      color: $white;
+      font-size: 1vh;
+      display: none;
+      bottom: 0px;
+      margin-left: 5px;
+      margin-bottom: 5px;
+      h4{
+        margin: 0px;
+      }
     }
-  }
-  a{
-    img{
-      width: 20vh;
-      height: 29vh;
+    a{
+      img{
+        width: 20vh;
+        height: 29vh;
+      }
     }
-  }
-  &:hover{
-    box-shadow: 0 0 2px rgba(35, 173, 278, 1);
+    &:hover{
+      box-shadow: 0 0 2px rgba(35, 173, 278, 1);
+    }
   }
 }
 
