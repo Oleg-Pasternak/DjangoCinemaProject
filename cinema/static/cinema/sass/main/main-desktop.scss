@@ -86,8 +86,8 @@ header{
   }
 }
 .main-imgs{
-  width: 180px;
-  height: 250px;
+  width: 20vh;
+  height: 29vh;
   -moz-user-select: none;
   -webkit-user-select: none;
   box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
@@ -143,7 +143,7 @@ header{
   top: 0;
   left: 0;
   right: 0;
-  height: 800px;
+  height: 480px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -413,6 +413,21 @@ footer{
         color: $white;
       }
     }
+    .passchange{
+      a{
+        text-decoration: none;
+        p{
+          font-size: 13px;
+          font-family: $main-font;
+          color: $white
+        }
+      }
+    }
+    .profile-input{
+      color: $white;
+      font-size: 15px;
+      font-family: $main-font;
+    }
   }
   .profile-container{
     position: absolute;
@@ -421,24 +436,6 @@ footer{
     height: 80vh;
     border-radius: 5px 0px 0px 0px;
     background-color: rgba(28, 28, 28, 0.7);
-    .passchange{
-      a{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        text-decoration: none;
-        background-color: $bodychangepass;
-        padding-left: 25%;
-        padding-right: 25%;
-        p{
-          font-size: 13px;
-          color: $white
-        }
-      }
-    }
-    .profile-buttons{
-
-    }
   }
 }
 

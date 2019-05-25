@@ -16,20 +16,20 @@
         <form action="." method="post" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="profile-input">
-            <p style='color: #ffffff'>First name:</p>
-            <input type="text" name="first_name" value="{{ profile.first_name}}">
+            <p>First name:</p>
+            <input type="text" name="first_name" value="{{ profile.first_name }}">
           </div>
           <div class="profile-input">
-            <p style='color: #ffffff'>Last name:</p>
-            <input type="text" name="last_name" value="{{ profile.last_name}}">
+            <p>Last name:</p>
+            <input type="text" name="last_name" value="{{ profile.last_name }}">
           </div>
           <div class="profile-input">
-            <p style='color: #ffffff'>Your birthday:</p>
-            <input type="date" name="birthday" value="{{ profile.birthday}}">
+            <p>Your birthday:</p>
+            <input type="date" name="birthday" value="{{ profile.birthday }}">
           </div>
           <div class="profile-input">
-            <p style='color: #ffffff'>Upload User Image:</p>
-            <input type="file" name="image" value="" accept=".jpg, .jpeg, .png" style="color: #ffffff">
+            <p>Upload user image is not possible now:</p>
+            <!-- <input type="file" name="image" value="{{ profile.image }}" accept=".jpg, .jpeg, .png"> -->
           </div>
           <div class="passchange"><a href="{% url 'account:password_change' %}"><p>Change Password</p></a></div>
           <p><input type="submit" value="Save changes"></p>
