@@ -95,8 +95,8 @@
       .main-imgs .rating h4 {
         margin: 0px; }
     .main-imgs a img {
-      width: 180px;
-      height: 250px; }
+      width: 20vh;
+      height: 29vh; }
     .main-imgs:hover {
       box-shadow: 0 0 2px #23adff; }
 
